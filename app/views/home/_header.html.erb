@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <%= link_to "Projekty™", root_path, class:"navbar-brand" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%if current_user.nil? == false %>
+          <%= link_to 'Projekty', projects_path, class:"nav-link active" %>
+
+            <%else %>
+          <%= link_to "Projekty", new_user_session_path, class:"nav-link active" %>
+            <%end %>
+        </li>
+        <li>
+          <%= link_to "Úkoly", tasks_alltasks_path, class:"nav-link active" %>
+        </li>
+
+
+
+
+
+      </ul>
+      <form class="d-flex">
+        <%= form_tag projects_path, :method => 'get' do %>
+          <%= text_field_tag :search, params[:search], placeholder:"Hledej" %>
+
+          <%end %>
+
+
+
+        <%if current_user.nil? == false %>
+          <%= link_to "#{current_user.email}", edit_user_registration_path, class: "btn btn-dark"%>
+        <%end%>
+        <%if current_user.nil? %>
+        <%= link_to "Přihlásit", new_user_session_path, class:"btn btn-success" %>
+          <%else %>
+        <%= link_to "Odhlásit", destroy_user_session_path, :method => :delete, class:"btn btn-danger"%>
+          <%end %>
+
+
+      </form>
+    </div>
+  </div>
+</nav>

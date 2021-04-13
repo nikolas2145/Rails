@@ -1,0 +1,35 @@
+<h1>Všechny mé úkoly</h1>
+
+
+<br><br>
+
+<br>
+
+
+
+
+
+<br />
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Úkoly
+  </div>
+  <% @tasks.each do |task| %>
+    <ul class="list-group list-group-flush">
+
+      <% if task.is_done == true %>
+      <%= link_to "#{task.title}", [task.project, task], class:"list-group-item card bg-success"%>
+        <%else%>
+        <%= link_to "#{task.title}", [task.project, task], class:"list-group-item card bg-danger"%>
+        <%end %>
+
+  <%end %>
+
+
+
+
+
+  </ul>
+</div>
+<br>
+<%= link_to "Ukaž pouze hotové", home_only_comp_path, class:"btn btn-success" %>
