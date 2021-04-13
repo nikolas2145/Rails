@@ -1,0 +1,63 @@
+
+<p>
+ <h1> <strong>Projekt: </strong>
+  <%= @project.title %></h1>
+</p>
+<p>
+
+
+
+
+
+
+
+
+
+  <%= form_with(model: [@project, @tasks]) do |f| %>
+
+  <div class="input-group mb-4">
+    <%= f.text_field :title, class:"form-control", placeholder:"Název úkolu" %>
+
+
+    <%=f.submit "Přidat úkol", class:"btn btn-secondary" %>
+  </div>
+<% end %>
+
+
+
+
+
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Úkoly
+  </div>
+  <% @project.tasks.each do |task| %>
+  <ul class="list-group list-group-flush">
+    <%if @show_only_comp == true %>
+      <% if task.is_done == true %>
+        <%= link_to "#{task.title}", [task.project, task], class:"list-group-item card bg-success"%>
+        <%end %>
+    <%else %>
+     <% if task.is_done == false %>
+      <%= link_to "#{task.title}", [task.project, task], class:"list-group-item card bg-danger"%>
+      <%else %>
+      <%= link_to "#{task.title}", [task.project, task], class:"list-group-item card bg-success"%>
+        <%end %>
+      <%end %>
+<%end %>
+
+  </ul>
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+<br><br>
+<%= link_to 'Editovat', edit_project_path(@project), class:"btn btn-dark" %>
+<%= link_to 'Zpět', projects_path, class:"btn btn-dark" %>

@@ -1,0 +1,36 @@
+
+<html>
+<head>
+
+<h1>Projekty</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Název</th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <%if project.uid == current_user.id %>
+      <tr>
+        <td><%= project.title %></td>
+        <td><% project.position %></td>
+        <td><%= link_to 'Detail', project, class: "btn btn-secondary" %></td>
+        <td><%= link_to 'Editace', edit_project_path(project), class: "btn btn-dark" %></td>
+        <td><%= link_to 'Odstranit', project, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nový projekt', new_project_path, class:"btn btn-success" %>
+</head>
+</html>

@@ -1,0 +1,27 @@
+
+
+<p>
+  <b>Název:</b>
+  <%= @task.title %>
+</p>
+<b>Popis:</b>
+<%if @task.description.nil? == true %>
+  Bez popisu
+  <%else %>
+<%= @task.description %>
+<%end %>
+
+<p>
+  <br>
+  <% if @task.is_done == true %>
+  <strong>Hotovo</strong>
+    <%else %>
+    Nedoděláno
+    <%end %>
+</p>
+
+
+
+<%= link_to 'Odstranit', project_tasks_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<%= link_to 'Editovat', edit_project_task_path(@task.project, @task), class:"btn btn-dark" %>
+<%= link_to 'Zpět', projects_path, class:"btn btn-secondary"%>
