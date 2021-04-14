@@ -3,6 +3,9 @@
 <p>
   <b>Název:</b>
   <%= @task.title %>
+  <br>
+
+
 </p>
 <b>Popis:</b>
 <%if @task.description.nil? == true %>
@@ -10,7 +13,8 @@
   <%else %>
 <%= @task.description %>
 <%end %>
-
+<br><br>
+<b>TAG :</b> <%=  %>
 <p>
   <br>
   <% if @task.is_done == true %>
@@ -18,10 +22,17 @@
     <%else %>
     Nedoděláno
     <%end %>
+  <br>
+  <p>
+
+
 </p>
 
 
+<%= link_to 'Přidat tag', new_tag_path, class:"btn btn-success" %>
 
-<%= link_to 'Odstranit', project_tasks_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
 <%= link_to 'Editovat', edit_project_task_path(@task.project, @task), class:"btn btn-dark" %>
+
 <%= link_to 'Zpět', projects_path, class:"btn btn-secondary"%>
+<br><br>
+<%= link_to 'Odstranit', project_tasks_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>

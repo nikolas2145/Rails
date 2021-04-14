@@ -40,6 +40,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     @project.uid = current_user.id
 
+
     respond_to do |format|
       if @project.save
         format.html { redirect_to @project, notice: "Projekt byl vytvořen." }

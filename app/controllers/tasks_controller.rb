@@ -11,14 +11,15 @@ class TasksController < ApplicationController
 
   def alltasks
 
-    @tasks = Task.where :uid => current_user.id
-
-
-
+    @tasks = Task.where(:uid == current_user.id)
   end
+
+
+
   # GET projects/1/tasks/1
   def show
     @tasks = Task.all
+
   end
 
   # GET projects/1/tasks/new
@@ -37,6 +38,7 @@ class TasksController < ApplicationController
 
     @task = @project.tasks.build(task_params)
     @task.uid = current_user.id
+
 
     if @task.save
       redirect_to([@task.project,])
@@ -75,6 +77,6 @@ class TasksController < ApplicationController
     # Only allow a trusted parameter "white list" through.
     def task_params
 
-      params.require(:task).permit(:title, :description, :is_done, :project_id, :uid)
+      params.require(:task).permit(:title, :description, :is_done, :project_id, :uid, :tag)
     end
 end

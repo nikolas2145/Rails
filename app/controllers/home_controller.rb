@@ -7,8 +7,14 @@ class HomeController < ApplicationController
   def only_comp
 
 
-    @tasks = Task.all.where(is_done: true)
-    @tasks = @tasks.where(uid: current_user.id)
+    @tasks = Task.comp_tasks
+
+  end
+
+  def only_uncomp
+    @tasks = Task.uncomp_tasks
+
+
   end
 
 
