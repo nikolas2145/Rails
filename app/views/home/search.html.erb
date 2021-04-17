@@ -1,0 +1,72 @@
+<% if @projects.nil? == false %>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Projekty</th>
+
+    <th colspan="4"></th>
+  </tr>
+  </thead>
+
+
+
+
+<% @projects.each do |project| %>
+
+    <tr>
+      <td><%= project.title %></td>
+
+      <td><%= link_to 'Detail', project, class: "btn btn-secondary" %></td>
+      <td><%= link_to 'Editace', edit_project_path(project), class: "btn btn-dark" %></td>
+      <td><%= link_to 'Odstranit', project, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %></td>
+    </tr>
+  <% end %>
+    <%end %>
+
+<% if @tasks.nil? == false %>
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Úkoly</th>
+
+      <th colspan="4"></th>
+    </tr>
+    </thead>
+
+
+
+
+    <% @tasks.each do |task| %>
+
+      <tr>
+        <td><%= task.title %></td>
+        <td><%= link_to 'Detail', [task.project, task], class:"btn btn-secondary" %></td>
+        <td><%= link_to 'Editace', edit_project_task_path(task.project, task), class:"btn btn-dark" %></td>
+        <td><%= link_to 'Odstranit', [task.project, task], method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+      </tr>
+    <% end %>
+
+
+
+<% if @tags.nil? == false %>
+
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>Tagy</th>
+
+        <th colspan="4"></th>
+      </tr>
+      </thead>
+
+    <% @tags.each do |tag| %>
+
+      <tr>
+        <td><%= tag.title %></td>
+        <td><%= link_to 'Detail', tag, class:"btn btn-secondary" %></td>
+        <td><%= link_to 'Editace', edit_tag_path(tag), class:"btn btn-dark" %></td>
+        <td><%= link_to 'Odstranit', tags_path(tag), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+      </tr>
+<% end %>
+      <%end %>
+<%end %>

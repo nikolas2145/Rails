@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   attr_reader :task
-  before_action :set_project, except:  [:alltasks]
+  before_action :set_project
+
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
   # GET projects/1/tasks
@@ -9,18 +10,22 @@ class TasksController < ApplicationController
     @tasks = @project.tasks
   end
 
-  def alltasks
+  # def alltasks
 
-    @tasks = Task.where(:uid == current_user.id)
-  end
+  # @pagy, @tasks = pagy(Task.where(:uid == current_user.id))
+
+  #end
 
 
 
   # GET projects/1/tasks/1
   def show
-    @tasks = Task.all
 
-  end
+    @tasks =  Task.all
+    
+
+
+    end
 
   # GET projects/1/tasks/new
   def new
@@ -38,6 +43,7 @@ class TasksController < ApplicationController
 
     @task = @project.tasks.build(task_params)
     @task.uid = current_user.id
+
 
 
     if @task.save
@@ -60,7 +66,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to project_tasks_url(@project)
+    redirect_to projects_path(@project)
   end
 
   private
@@ -68,6 +74,7 @@ class TasksController < ApplicationController
     def set_project
 
       @project = Project.find(params[:project_id])
+
     end
 
     def set_task
@@ -79,4 +86,7 @@ class TasksController < ApplicationController
 
       params.require(:task).permit(:title, :description, :is_done, :project_id, :uid, :tag)
     end
+
+
+
 end

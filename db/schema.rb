@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_153358) do
+ActiveRecord::Schema.define(version: 2021_04_16_192123) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
@@ -21,11 +21,11 @@ ActiveRecord::Schema.define(version: 2021_04_14_153358) do
   end
 
   create_table "tags", force: :cascade do |t|
+    t.integer "task_id", null: false
     t.string "title"
-    t.integer "tasks_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["tasks_id"], name: "index_tags_on_tasks_id"
+    t.index ["task_id"], name: "index_tags_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_153358) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "uid"
-    t.integer "task_id"
-    t.string "tag"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
@@ -55,5 +53,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_153358) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "tags", "tasks"
   add_foreign_key "tasks", "projects"
 end

@@ -1,25 +1,23 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Tags</h1>
+<h1>Listing tags</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <tr>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
 
-  <tbody>
-    <% @tags.each do |tag| %>
-      <tr>
-        <td><%= link_to 'Show', tag %></td>
-        <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
+<% @tags.each do |tag| %>
+  <tr>
+    <td><%= tag.title %></td>
+    <td><%= link_to 'Show', [tag.task, tag] %></td>
+    <td><%= link_to 'Edit', edit_task_tag_path(tag.task, tag) %></td>
+    <td><%= link_to 'Destroy', [tag.task, tag], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
 </table>
 
-<br>
+<br />
 
-<%= link_to 'New Tag', new_tag_path %>
+<%= link_to 'New Tag', new_task_tag_path(params[:task_id]) %>

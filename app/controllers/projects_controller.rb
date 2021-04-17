@@ -5,7 +5,8 @@ class ProjectsController < ApplicationController
   # GET /projects or /projects.json
   def index
 
-    @projects = Project.search(params[:search])
+    @pagy, @projects = pagy( Project.search(params[:search]))
+
 
 
   end

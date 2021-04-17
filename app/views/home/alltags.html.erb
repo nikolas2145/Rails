@@ -1,0 +1,36 @@
+<h1>Všechny mé tagy</h1>
+
+
+<br><br>
+
+<br>
+
+
+
+
+
+<br />
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Úkoly
+  </div>
+  <% @tags.each do |tag| %>
+    <ul class="list-group list-group-flush">
+
+
+        <%= link_to "#{tag.title}", [tag.task, tag], class:"list-group-item card bg-secondary"%>
+
+  <%end %>
+
+
+
+
+
+  </ul>
+</div>
+<br>
+
+<br>
+<br>
+<br>
+<%==pagy_nav(@pagy) %>

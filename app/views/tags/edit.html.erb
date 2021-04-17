@@ -1,6 +1,6 @@
-<h1>Editing Tag</h1>
+<h1>Editing tag</h1>
 
-<%= render 'form', tag: @tag %>
+<%= render 'form' %>
 
-<%= link_to 'Show', @tag %> |
-<%= link_to 'Back', tags_path %>
+<%= link_to 'Show', [@tag.task, @tag] %> |
+<%= link_to 'Back', task_tags_path(@tag.task) %>

@@ -15,23 +15,33 @@
             <%end %>
         </li>
         <li>
-          <%= link_to "Úkoly", tasks_alltasks_path, class:"nav-link active" %>
+          <%if current_user.nil? == false %>
+          <%= link_to "Úkoly", home_alltasks_path, class:"nav-link active" %>
+            <%else %>
+          <%= link_to "Úkoly", new_user_session_path, class:"nav-link active" %>
+            <%end %>
+        </li>
+
+        <li>
+          <%if current_user.nil? == false %>
+            <%= link_to "Tagy", home_alltags_path, class:"nav-link active" %>
+          <%else %>
+            <%= link_to "Tagy", new_user_session_path, class:"nav-link active" %>
+          <%end %>
         </li>
 
 
 
-
-
       </ul>
-      <form class="d-flex">
-        <%= form_tag projects_path, :method => 'get' do %>
-          <%= text_field_tag :search, params[:search], placeholder:"Hledej" %>
+      <%= form_with url: home_search_path, method: :get do |form| %>
+      <%= form.text_field :search, placeholder:"Hledej" %>
 
-          <%end %>
-
+      <% end %>
 
 
-        <%if current_user.nil? == false %>
+
+
+      <%if current_user.nil? == false %>
           <%= link_to "#{current_user.email}", edit_user_registration_path, class: "btn btn-dark"%>
         <%end%>
         <%if current_user.nil? %>

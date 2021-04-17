@@ -13,8 +13,8 @@
   <%else %>
 <%= @task.description %>
 <%end %>
-<br><br>
-<b>TAG :</b> <%=  %>
+<br>
+
 <p>
   <br>
   <% if @task.is_done == true %>
@@ -27,12 +27,34 @@
 
 
 </p>
+<br>
 
 
-<%= link_to 'Přidat tag', new_tag_path, class:"btn btn-success" %>
+
+
+
+
+
 
 <%= link_to 'Editovat', edit_project_task_path(@task.project, @task), class:"btn btn-dark" %>
 
-<%= link_to 'Zpět', projects_path, class:"btn btn-secondary"%>
+
+
+<%= link_to 'Odstranit', project_task_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+
+
+
 <br><br>
-<%= link_to 'Odstranit', project_tasks_path, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Tagy
+  </div>
+  <% @task.tags.each do |tag| %>
+    <ul class="list-group list-group-flush">
+
+
+      <%= link_to "#{tag.title}", [tag.task, tag], class:"list-group-item card bg-secondary"%>
+
+  <%end %>
+
+  <%= link_to 'Přidat tag', new_task_tag_path(@task), class:"btn btn-success" %>

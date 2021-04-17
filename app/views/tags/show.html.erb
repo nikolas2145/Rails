@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_tag_path(@tag) %> |
-<%= link_to 'Back', tags_path %>
+
+<p>
+  <b>Název:</b>
+  <%= @tag.title %>
+
+</p>
+
+
+<%= link_to 'Editovat', edit_task_tag_path(@tag.task, @tag), class:"btn btn-dark" %>
+<%= link_to 'Destroy', [@tag.task, @tag], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+

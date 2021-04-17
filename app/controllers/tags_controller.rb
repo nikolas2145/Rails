@@ -1,69 +1,70 @@
 class TagsController < ApplicationController
-  before_action :set_tag, only: %i[ show edit update destroy ]
+  before_action :set_task, except: [:alltags]
+  before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
-  # GET /tags or /tags.json
+  # GET tasks/1/tags
   def index
+    @tags = @task.tags
+  end
+
+
+  def alltags
     @tags = Tag.all
   end
 
-  # GET /tags/1 or /tags/1.json
+  # GET tasks/1/tags/1
   def show
+
   end
 
-  # GET /tags/new
+  # GET tasks/1/tags/new
   def new
-    @tag = Tag.new
+    @tag = @task.tags.build
   end
 
-  # GET /tags/1/edit
+  # GET tasks/1/tags/1/edit
   def edit
   end
 
-  # POST /tags or /tags.json
+  # POST tasks/1/tags
   def create
-    @tag = Tag.new(tag_params)
+    @tag = @task.tags.build(tag_params)
 
-    respond_to do |format|
-      if @tag.save
-        format.html { redirect_to @tag, notice: "Tag was successfully created." }
-        format.json { render :show, status: :created, location: @tag }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    if @tag.save
+      redirect_to([@tag.task, @tag], notice: 'Tag was successfully created.')
+    else
+      render action: 'new'
     end
   end
 
-  # PATCH/PUT /tags/1 or /tags/1.json
+  # PUT tasks/1/tags/1
   def update
-    respond_to do |format|
-      if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: "Tag was successfully updated." }
-        format.json { render :show, status: :ok, location: @tag }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    if @tag.update_attribute(tag_params)
+      redirect_to([@tag.task, @tag], notice: 'Tag was successfully updated.')
+    else
+      render action: 'edit'
     end
   end
 
-  # DELETE /tags/1 or /tags/1.json
+  # DELETE tasks/1/tags/1
   def destroy
     @tag.destroy
-    respond_to do |format|
-      format.html { redirect_to tags_url, notice: "Tag was successfully destroyed." }
-      format.json { head :no_content }
-    end
+
+    redirect_to task_tags_url(@task)
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_tag
-      @tag = Tag.find(params[:id])
+    def set_task
+      @task = Task.find(params[:task_id])
     end
 
-    # Only allow a list of trusted parameters through.
+    def set_tag
+      @tag = @task.tags.find(params[:id])
+    end
+
+    # Only allow a trusted parameter "white list" through.
     def tag_params
-      params.fetch(:tag, {})
+      params.require(:tag).permit(:title)
     end
 end

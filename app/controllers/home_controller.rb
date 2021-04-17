@@ -1,6 +1,16 @@
 class HomeController < ApplicationController
   def index
 
+
+
+  end
+
+
+  def search
+
+    @projects = Project.search(params[:search])
+    @tasks = Task.search(params[:search])
+    @tags = Tag.search(params[:search])
   end
 
 
@@ -17,6 +27,15 @@ class HomeController < ApplicationController
 
   end
 
+  def alltasks
+    @pagy, @tasks = pagy (Task.all)
+
+  end
+
+
+  def alltags
+    @pagy, @tags = pagy( Tag.all )
+  end
 
 
 

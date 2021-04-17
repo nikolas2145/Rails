@@ -1,48 +1,49 @@
-require "test_helper"
+require 'test_helper'
 
-class TagsControllerTest < ActionDispatch::IntegrationTest
+class TagsControllerTest < ActionController::TestCase
   setup do
+    @task = tasks(:one)
     @tag = tags(:one)
   end
 
   test "should get index" do
-    get tags_url
+    get :index, params: { task_id: @task }
     assert_response :success
   end
 
   test "should get new" do
-    get new_tag_url
+    get :new, params: { task_id: @task }
     assert_response :success
   end
 
   test "should create tag" do
     assert_difference('Tag.count') do
-      post tags_url, params: { tag: {  } }
+      post :create, params: { task_id: @task, tag: @tag.attributes }
     end
 
-    assert_redirected_to tag_url(Tag.last)
+    assert_redirected_to task_tag_path(@task, Tag.last)
   end
 
   test "should show tag" do
-    get tag_url(@tag)
+    get :show, params: { task_id: @task, id: @tag }
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_tag_url(@tag)
+    get :edit, params: { task_id: @task, id: @tag }
     assert_response :success
   end
 
   test "should update tag" do
-    patch tag_url(@tag), params: { tag: {  } }
-    assert_redirected_to tag_url(@tag)
+    put :update, params: { task_id: @task, id: @tag, tag: @tag.attributes }
+    assert_redirected_to task_tag_path(@task, Tag.last)
   end
 
   test "should destroy tag" do
     assert_difference('Tag.count', -1) do
-      delete tag_url(@tag)
+      delete :destroy, params: { task_id: @task, id: @tag }
     end
 
-    assert_redirected_to tags_url
+    assert_redirected_to task_tags_path(@task)
   end
 end
