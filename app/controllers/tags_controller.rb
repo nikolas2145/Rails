@@ -29,7 +29,7 @@ class TagsController < ApplicationController
     @tag = @task.tags.build(tag_params)
     @tag.uid = current_user.id
     if @tag.save
-      redirect_to([@tag.task, @tag], notice: 'Tag was successfully created.')
+      redirect_to([@tag.task, @tag], notice: 'Tagy byl vytvořen.')
     else
       render action: 'new'
     end
@@ -38,7 +38,7 @@ class TagsController < ApplicationController
   # PUT tasks/1/tags/1
   def update
     if @tag.update_attribute(tag_params)
-      redirect_to([@tag.task, @tag], notice: 'Tag was successfully updated.')
+      redirect_to([@tag.task, @tag], notice: 'Tag byl upraven.')
     else
       render action: 'edit'
     end
@@ -48,7 +48,7 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
 
-    redirect_to task_tags_url(@task)
+    redirect_to root_path
   end
 
   private
