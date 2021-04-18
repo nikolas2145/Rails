@@ -28,13 +28,13 @@ class HomeController < ApplicationController
   end
 
   def alltasks
-    @pagy, @tasks = pagy (Task.all)
+    @pagy, @tasks = pagy (Task.where(:uid => current_user.id))
 
   end
 
 
   def alltags
-    @pagy, @tags = pagy( Tag.all )
+    @pagy, @tags = pagy( Tag.where(:uid => current_user.id) )
   end
 
 

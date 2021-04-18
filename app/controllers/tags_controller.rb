@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-  before_action :set_task, except: [:alltags]
+  before_action :set_task
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
   # GET tasks/1/tags
@@ -8,9 +8,7 @@ class TagsController < ApplicationController
   end
 
 
-  def alltags
-    @tags = Tag.all
-  end
+
 
   # GET tasks/1/tags/1
   def show
@@ -29,7 +27,7 @@ class TagsController < ApplicationController
   # POST tasks/1/tags
   def create
     @tag = @task.tags.build(tag_params)
-
+    @tag.uid = current_user.id
     if @tag.save
       redirect_to([@tag.task, @tag], notice: 'Tag was successfully created.')
     else
