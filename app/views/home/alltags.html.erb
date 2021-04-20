@@ -1,4 +1,4 @@
-<h1>Všechny mé tagy</h1>
+<h1><%="#{I18n.t 'tags.all_my_tags'}" %></h1>
 
 
 <br><br>
@@ -12,7 +12,7 @@
 <br />
 <div class="card" style="width: 25rem;">
   <div class="card-header">
-    Tagy
+    <%="#{I18n.t 'tags.tags'}" %>
   </div>
   <% @tags.each do |tag| %>
     <ul class="list-group list-group-flush">

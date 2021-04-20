@@ -1,4 +1,4 @@
-<h2>Zapomenuté heslo?</h2>
+<h2><%= "#{I18n.t 'passwords.forgot_password'}" %></h2>
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
@@ -7,11 +7,11 @@
     <%= f.input :email,
                 required: true,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "Email" } %>
   </div>
 <br>
   <div class="form-actions">
-    <%= f.button :submit, "Send me reset password instructions", class:"btn btn-danger" %>
+    <%= f.button :submit, "#{I18n.t 'passwords.password_instructions'}", class:"btn btn-danger" %>
   </div>
 <% end %>
 

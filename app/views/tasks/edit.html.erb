@@ -1,4 +1,4 @@
-<h1>Editace <%= "#{@task.title}" %></h1>
+<h1><%= "#{I18n.t 'forms.edit'}" %> <%= "#{@task.title}" %></h1>
 
 <%= render 'form' %>
 

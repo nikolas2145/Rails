@@ -1,12 +1,17 @@
 
 
 <p>
-  <b>Název:</b>
+  <b><%= "#{I18n.t 'tags.title'}"%></b>
   <%= @tag.title %>
+  <br>
+  <br>
+  <strong><%="#{I18n.t 'tags.under_tasks'}" %> : </strong>
+  <@tasks.each do |task| %>
 
+  < end %>
 </p>
 
 
-<%= link_to 'Editovat', edit_task_tag_path(@tag.task, @tag), class:"btn btn-dark" %>
-<%= link_to 'Odstranit', [@tag.task, @tag], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger"%>
+<%= link_to "#{I18n.t 'forms.edit'}", edit_task_tag_path(@tag.task, @tag), class:"btn btn-dark" %>
+<%= link_to "#{I18n.t 'forms.destroy'}", [@tag.task, @tag], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class: "btn btn-danger"%>
 

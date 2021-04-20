@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'nested_scaffold'
 gem 'bullet', '~> 6.1', '>= 6.1.4'
 
-
+gem 'rexml', '~> 3.2', '>= 3.2.4'
 gem 'slim', '~> 4.1'
 gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'pagy', '~> 4.1'

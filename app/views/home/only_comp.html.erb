@@ -1,4 +1,4 @@
-<h1>Splněné úkoly</h1>
+<h1><%="#{I18n.t 'tasks.comp_tasks'}" %></h1>
 
 
 
@@ -6,7 +6,7 @@
 <br />
 <div class="card" style="width: 25rem;">
   <div class="card-header">
-    Úkoly
+    <%="#{I18n.t 'tasks.tasks'}" %>
   </div>
   <% @tasks.each do |task| %>
     <ul class="list-group list-group-flush">
@@ -24,4 +24,6 @@
   </ul>
 </div>
 <br>
-<%= link_to "Zpět", tasks_alltasks_path, class:"btn btn-secondary" %>
+
+<%= link_to "#{I18n.t 'tasks.all_my_tasks'}", home_alltasks_path , class:"btn btn-dark" %>
+<%= link_to "#{I18n.t 'tasks.un_comp_tasks'}", home_only_uncomp_path , class:"btn btn-secondary" %>

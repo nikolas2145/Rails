@@ -1,6 +1,6 @@
 
 <p>
- <h1> <strong>Projekt: </strong>
+ <h1> <strong><%="#{I18n.t 'project.projects'}" %>: </strong>
   <%= @project.title %></h1>
 </p>
 <p>
@@ -16,10 +16,10 @@
   <%= form_with(model: [@project, @tasks]) do |f| %>
 
   <div class="input-group mb-4">
-    <%= f.text_field :title, class:"form-control", placeholder:"Název úkolu" %>
+    <%= f.text_field :title, class:"form-control", placeholder:"#{I18n.t 'tasks.title_task'}" %>
 
 
-    <%=f.submit "Přidat úkol", class:"btn btn-secondary" %>
+    <%=f.submit "#{I18n.t 'forms.submit'}", class:"btn btn-secondary" %>
   </div>
 <% end %>
 
@@ -29,7 +29,7 @@
 
 <div class="card" style="width: 25rem;">
   <div class="card-header">
-    Úkoly
+    <%="#{I18n.t 'tasks.tasks'}" %>
   </div>
   <% @project.tasks.each do |task| %>
   <ul class="list-group list-group-flush">
@@ -59,7 +59,7 @@
 
 
 <br><br>
-<%= link_to 'Editovat', edit_project_path(@project), class:"btn btn-dark" %>
+<%= link_to "#{I18n.t 'forms.edit'}", edit_project_path(@project), class:"btn btn-dark" %>
 
 
 

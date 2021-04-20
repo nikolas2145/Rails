@@ -7,34 +7,31 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <%if current_user.nil? == false %>
-          <%= link_to 'Projekty', projects_path, class:"nav-link active" %>
 
-            <%else %>
-          <%= link_to "Projekty", new_user_session_path, class:"nav-link active" %>
-            <%end %>
+          <%= link_to "#{I18n.t 'project.projects'}", projects_path, class:"nav-link active" %>
+
+
+
+
         </li>
         <li>
-          <%if current_user.nil? == false %>
-          <%= link_to "Úkoly", home_alltasks_path, class:"nav-link active" %>
-            <%else %>
-          <%= link_to "Úkoly", new_user_session_path, class:"nav-link active" %>
-            <%end %>
+
+          <%= link_to "#{I18n.t 'tasks.tasks'}", home_alltasks_path, class:"nav-link active" %>
+
+
         </li>
 
         <li>
-          <%if current_user.nil? == false %>
-            <%= link_to "Tagy", home_alltags_path, class:"nav-link active" %>
-          <%else %>
-            <%= link_to "Tagy", new_user_session_path, class:"nav-link active" %>
-          <%end %>
+
+            <%= link_to "#{I18n.t 'tags.tags'}" , home_alltags_path, class:"nav-link active" %>
+
         </li>
 
 
 
       </ul>
       <%= form_with url: home_search_path, method: :get do |form| %>
-      <%= form.text_field :search, placeholder:"Hledej" %>
+      <%= form.text_field :search, placeholder:"#{I18n.t 'searchs.search'}" %>
 
       <% end %>
 
@@ -45,9 +42,9 @@
           <%= link_to "#{current_user.email}", edit_user_registration_path, class: "btn btn-dark"%>
         <%end%>
         <%if current_user.nil? %>
-        <%= link_to "Přihlásit", new_user_session_path, class:"btn btn-success" %>
+        <%= link_to "#{I18n.t 'login.login'}", new_user_session_path, class:"btn btn-success" %>
           <%else %>
-        <%= link_to "Odhlásit", destroy_user_session_path, :method => :delete, class:"btn btn-danger"%>
+        <%= link_to "#{I18n.t 'login.logout'}", destroy_user_session_path, :method => :delete, class:"btn btn-danger"%>
           <%end %>
 
 

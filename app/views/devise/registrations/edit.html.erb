@@ -5,25 +5,25 @@
 
   <div class="field">
     <%= f.label "Email" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "Email" %>
   </div>
 
   <div class="field">
     <%= f.label "Jméno" %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "Jméno" %>
+    <%= f.text_field :name, autofocus: true, autocomplete:"#{I18n.t 'register.name'}"%>
   </div>
 
   <div class="field">
     <%= f.label "Příjmení" %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "Příjmení" %>
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "#{I18n.t 'register.last_name'}"%>
     </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label "Heslo" %> <i>(Nechte prázndé, pokud nechcete upravit)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label "#{I18n.t 'passwords.password'}" %> <i>(Nechte prázndé, pokud nechcete upravit)</i><br />
+    <%= f.password_field :password, autocomplete: "#{I18n.t 'passwords.new_password'}" %>
     <% if @minimum_password_length %>
       <br />
 
@@ -31,22 +31,22 @@
   </div>
 
   <div class="field">
-    <%= f.label "Potvrzení hesla" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.label "#{I18n.t 'passwords.password_confirm'}" %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "#{I18n.t 'passwords.password_confirm'}" %>
   </div>
 
   <div class="field">
-    <%= f.label "Současné heslo" %> <i>(Potvrzení hesla)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
+    <%= f.label "#{I18n.t 'passwords.current_password'}" %> <i>(Potvrzení hesla)</i><br />
+    <%= f.password_field :current_password, autocomplete: "#{I18n.t 'passwords.current_password'}"%>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit "Uložit", class:"btn btn-success" %>
+    <%= f.submit "#{I18n.t 'register.save'}", class:"btn btn-success" %>
   </div>
 <% end %>
 <br>
 
-<h3>Zrušení účtu</h3>
+<h3><%="#{I18n.t 'edit.cancel_account'}" %></h3>
 
-<p> <%= button_to "Zrušit účet", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-danger"%></p>
+<p> <%= button_to "#{I18n.t 'edit.cancel_account'}", registration_path(resource_name), data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, method: :delete, class:"btn btn-danger"%></p>
 

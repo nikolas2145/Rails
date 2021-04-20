@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :task do
     resources :tags
   end
-  root 'home#index'
+  root 'projects#index'
   get 'tasks/delete'
   get 'tags/delete'
 

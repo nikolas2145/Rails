@@ -24,4 +24,7 @@
   </ul>
 </div>
 <br>
-<%= link_to "Zpět", tasks_alltasks_path, class:"btn btn-secondary" %>
+<%= link_to "#{I18n.t 'tasks.all_my_tasks'}", home_alltasks_path , class:"btn btn-secondary" %>
+<%= link_to "#{I18n.t 'tasks.comp_tasks'}", home_only_comp_path , class:"btn btn-dark" %>
+
+

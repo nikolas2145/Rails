@@ -1,7 +1,7 @@
 <%= form_with(model: [@task.project, @task]) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+      <h2><%= pluralize(@task.errors.count, "error") %> <%="#{I18n.t 'forms.cannot_save'}" %></h2>
 
       <ul>
       <% @task.errors.full_messages.each do |msg| %>
@@ -12,11 +12,11 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Název" %><br />
+    <%= f.label "#{I18n.t 'tasks.title'}" %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label "Popis" %><br />
+    <%= f.label "#{I18n.t 'forms.desc'}" %><br />
     <%= f.text_area :description %>
   </div>
 
@@ -28,10 +28,10 @@
 
 
     <%= f.check_box :is_done %>
-    <%= f.label "Hotovo?" %>
+    <%= f.label "#{I18n.t 'tasks.is_done?'}" %>
   </div>
   <div class="actions">
 <br>
-    <%= f.submit 'Editovat', class:"btn btn-success" %>
+    <%= f.submit "#{I18n.t 'forms.submit'}", class:"btn btn-success" %>
   </div>
 <% end %>

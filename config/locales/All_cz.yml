@@ -1,0 +1,43 @@
+cz:
+  project:
+    "projects" : "Projekty"
+    "project_created" : "Projekt vytvořen"
+    "project_updated" : "Projekt upraven"
+    "project_destoy" : "Projekt odstraněn"
+    "title" : "Název"
+    "new_project" : "Nový projekt"
+  tags:
+    "tags" : "Tagy"
+    "tag_created" : "Tag byl vytvořen"
+    "tag_updated" : "Tag byl upraven"
+    "tag_destroy" : "Tag byl odstraněn"
+    "all_my_tags" : "Všechny mé tagy"
+    "new_tag" : "Nový tag"
+    "title" : "Název"
+    "under_tasks" : "Pod úkoly"
+
+  tasks:
+    "tasks" : "Úkoly"
+    "un_comp_tasks" : "Nedodělané úkoly"
+    "comp_tasks" : "Hotové úkoly"
+    "all_my_tasks" : "Všechny mé úkoly"
+    "task_created" : "Úkol vytvořen"
+    "task_updated" : "Úkol upraven"
+    "task_destroy" : "Úkol odstraněn"
+    "add_task": "Přidat úkol"
+    "title_task": "Název úkolu"
+    "title" : "Název"
+    "is_done?" : "Hotovo?"
+    "new_task" : "Nový úkol"
+    "no_desc" : "Bez popisu"
+    "comp" : "Hotovo"
+    "uncomp" : "Nedoděláno"
+  searchs:
+    "search" : "Hledej"
+  forms:
+    "show": "Detail"
+    "edit" : "Editace"
+    "destroy" : "Odstranit"
+    "submit": "Potvrdit"
+    "cannot_save" : "Nelze uložit"
+    "desc": "Popis"

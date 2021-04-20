@@ -28,8 +28,14 @@ class TagsController < ApplicationController
   def create
     @tag = @task.tags.build(tag_params)
     @tag.uid = current_user.id
+    if 
+
+
+
+
+
     if @tag.save
-      redirect_to([@tag.task, @tag], notice: 'Tagy byl vytvořen.')
+      redirect_to([@tag.task, @tag], notice: "#{I18n.t 'tags.tag_created'}")
     else
       render action: 'new'
     end
@@ -38,7 +44,7 @@ class TagsController < ApplicationController
   # PUT tasks/1/tags/1
   def update
     if @tag.update_attribute(tag_params)
-      redirect_to([@tag.task, @tag], notice: 'Tag byl upraven.')
+      redirect_to([@tag.task, @tag], notice: "#{I18n.t 'tags.tag_updated'}")
     else
       render action: 'edit'
     end
@@ -48,7 +54,7 @@ class TagsController < ApplicationController
   def destroy
     @tag.destroy
 
-    redirect_to root_path
+    redirect_to home_alltags_path, notice: "#{I18n.t 'tags.tag_destroy'}"
   end
 
   private

@@ -1,7 +1,7 @@
 <%= form_with(model: [@tag.task, @tag]) do |f| %>
   <% if @tag.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+      <h2><%= pluralize(@tag.errors.count, "error" "#{I18n.t 'forms.cannot_save'}") %> </h2>
 
       <ul>
       <% @tag.errors.full_messages.each do |msg| %>
@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Název" %><br />
+    <%= f.label "#{I18n.t 'project.title'}" %><br />
     <%= f.text_field :title %>
   </div>
   <div class="actions"><br>
-    <%= f.submit "Hotovo", class:"btn btn-success" %>
+    <%= f.submit "#{I18n.t 'forms.submit'}", class:"btn btn-success" %>
   </div>
 <% end %>

@@ -1,0 +1,98 @@
+# Additional translations at https://github.com/heartcombo/devise/wiki/I18n
+
+cz:
+  devise:
+    confirmations:
+      confirmed: "Email byl potvrzen."
+      send_instructions: "Za pár minut obdržíte e-mail s pokyny, jak potvrdit svou e-mailovou adresu."
+      send_paranoid_instructions: "Pokud vaše e-mailová adresa existuje v naší databázi, obdržíte e-mail s pokyny, jak svou e-mailovou adresu potvrdit během několika minut."
+    failure:
+      already_authenticated: "Jste již přihlášen."
+      inactive: "Váš účet nebyl aktivován."
+      invalid: "Neplatný %{authentication_keys} nebo heslo."
+      locked: "Váš účet je zablokován."
+      last_attempt: "Máte poslední pokus, jinak váš účet bude zablokován."
+      not_found_in_database: "Neplatný %{authentication_keys} nebo heslo."
+      timeout: "Vaše relace vypršela. Chcete-li pokračovat, znovu se přihlaste."
+      unauthenticated: "Před pokračováním se prosím přihlašte."
+      unconfirmed: "Než budete pokračovat, musíte potvrdit svou e-mailovou adresu."
+    mailer:
+      confirmation_instructions:
+        subject: "Pokyny k potvrezení"
+      reset_password_instructions:
+        subject: "pokyny pro resetování hesla"
+      unlock_instructions:
+        subject: "Pokyny k odemknutí"
+      email_changed:
+        subject: "Email byl změněn"
+      password_change:
+        subject: "Heslo změněno"
+    omniauth_callbacks:
+      failure: "Nelze vás ověřit %{kind} \"%{reason}\"."
+      success: "Úspěšně autorizován %{kind}."
+    passwords:
+      no_token: "Na tuto stránku nemůžete vstoupit, aniž byste přišli z e-mailu s resetováním hesla. Pokud pocházíte z e-mailu pro resetování hesla, ujistěte se, že jste použili celou uvedenou adresu URL. "
+      send_instructions: "Za pár minut obdržíte e-mail s pokyny, jak obnovit heslo."
+      send_paranoid_instructions: "Pokud vaše e-mailová adresa existuje v naší databázi, obdržíte na ni během několika minut odkaz pro obnovení hesla. "
+      updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni. "
+      updated_not_active: "Vaše heslo bylo úspěšně změněno. "
+    registrations:
+      destroyed: "Váš učet byl úspěšně zrušen."
+      signed_up: "Úspěšně jste se zaregistrovali."
+      signed_up_but_inactive: "Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet ještě není aktivován."
+      signed_up_but_locked: "Úspěšně jste se zaregistrovali. Nemohli jsme vás však přihlásit, protože váš účet je uzamčen."
+      signed_up_but_unconfirmed: "Na vaši e-mailovou adresu byla odeslána zpráva s potvrzovacím odkazem. Chcete-li aktivovat svůj účet, klikněte na odkaz."
+      update_needs_confirmation: "Úspěšně jste aktualizovali svůj účet, ale musíme ověřit vaši novou e-mailovou adresu. Zkontrolujte prosím svůj e-mail a kliknutím na potvrzovací odkaz potvrďte svou novou e-mailovou adresu."
+      updated: "Váš účet byl úspěšně aktualizován."
+      updated_but_not_signed_in: "Váš účet byl úspěšně aktualizován, ale protože bylo změněno vaše heslo, musíte se znovu přihlásit."
+    sessions:
+      signed_in: "Přihlášení bylo úspěšné."
+      signed_out: "Byl jste odhlášen."
+      already_signed_out: "Byl jste odhlášen."
+    unlocks:
+      send_instructions: "Za pár minut obdržíte e-mail s pokyny, jak účet odemknout. "
+      send_paranoid_instructions: "Pokud váš účet existuje, obdržíte e-mail s pokyny, jak jej odemknout během několika minut. "
+      unlocked: "Váš účet byl úspěšně odemčen. Chcete-li pokračovat, přihlaste se. "
+  errors:
+    messages:
+      already_confirmed: "již bylo potvrzeno, zkuste se přihlásit "
+      confirmation_period_expired: "je třeba potvrdit do %{period}, požádejte o nový "
+      expired: "platnost vypršela, požádejte o nový"
+      not_found: "Nenalezeno"
+      not_locked: "Nebyl uzamčen"
+      not_saved:
+        one: "Byla nalezena chyba : %{resource}"
+        other: "Byly nalezeny chyby : %{resource}"
+  passwords:
+    "password": "Heslo"
+    "new_password" : "Nové heslo"
+    "char_min" : "Minimum symbolů"
+    "password_confirm" : "Potvrďte své heslo"
+    "change_password" : "Změnit heslo"
+    "forgot_password" : "Zapomenuté heslo"
+    "password_instructions" : "Poslat pokyny pro změnu hesla"
+    "current_password" : "Současné heslo"
+  register:
+    "register": "Registrace"
+    "name" : "Jméno"
+    "last_name" : "Příjmení"
+    "save" : "Uložit"
+
+  edit:
+    "cancel_account" : "Zrušit účet"
+    "confirm_instructions?" : "Neobdrželi jste pokyny pro aktivaci?"
+    "unlock_instructions?" : "Neobdrželi jste pokyny pro odemčení?"
+    "sign_in_with" : "Přihlášení s "
+
+  notice:
+    "are_you_sure" : "Jste si jistý?"
+
+
+  login:
+    "login" : "Přihlášení"
+    "remember_me" : "Zapamatovat"
+    "logout": "Odhlásit"
+    "need_to_login" : "Musíte se přihlásit!"
+
+  resend_instructions:
+    "reset_unlock_inst" : "Znovu zaslat pokyny pro odemčení"

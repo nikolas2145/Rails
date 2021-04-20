@@ -4,12 +4,12 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="mb-3">
-    <%= f.label "Název" %>
+    <%= f.label "#{I18n.t 'project.title'}" %>
     <%= f.text_field :title, class: "form-controller" %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit,"Vytvořit", class:"btn btn-success" %>
+    <%= f.button :submit,"#{I18n.t 'forms.submit'}", class:"btn btn-success" %>
   </div>
   <br>
 <% end %>

@@ -47,7 +47,7 @@ class TasksController < ApplicationController
 
 
     if @task.save
-      redirect_to([@task.project,])
+      redirect_to([@task.project,], notice: "#{I18n.t 'tasks.task_created'}")
     else
       render action: 'new'
     end
@@ -56,7 +56,7 @@ class TasksController < ApplicationController
   # PUT projects/1/tasks/1
   def update
     if @task.update(task_params)
-      redirect_to([@task.project, @task], notice: 'Úkol upraven.')
+      redirect_to([@task.project, @task], notice: "#{I18n.t 'tasks.task_updated'}")
     else
       render action: 'edit'
     end
@@ -66,7 +66,7 @@ class TasksController < ApplicationController
   def destroy
     @task.destroy
 
-    redirect_to projects_path(@project)
+    redirect_to projects_path(@project), notice: "#{I18n.t 'tasks.task_destroy'}"
   end
 
   private
