@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :set_task
   attr_reader :task
   before_action :set_project
 
@@ -10,18 +11,16 @@ class TasksController < ApplicationController
     @tasks = @project.tasks
   end
 
-  # def alltasks
 
-  # @pagy, @tasks = pagy(Task.where(:uid == current_user.id))
-
-  #end
 
 
 
   # GET projects/1/tasks/1
   def show
 
-    @tasks =  Task.all
+
+
+
     
 
 
@@ -77,15 +76,16 @@ class TasksController < ApplicationController
 
     end
 
-    def set_task
-      @task = @project.tasks.find(params[:id])
-    end
+   def set_task
+     @task = @project.tasks.find(params[:id])
+  end
 
     # Only allow a trusted parameter "white list" through.
     def task_params
 
-      params.require(:task).permit(:title, :description, :is_done, :project_id, :uid, :tag)
+      params.require(:task).permit(:title, :description, :is_done, :project_id, :uid, :tag, :attachment)
     end
+
 
 
 

@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   root 'projects#index'
   get 'tasks/delete'
   get 'tags/delete'
+  get 'projects/last_projects'
+  get 'projects/first_projects'
 
   resources :projects do
     resources :tasks

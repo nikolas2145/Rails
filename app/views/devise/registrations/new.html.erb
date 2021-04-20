@@ -1,6 +1,6 @@
 <h2><%="#{I18n.t 'register.register'}" %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -9,17 +9,17 @@
   </div>
 
   <div class="field">
-    <%= f.label "#{I18n.t 'register.name'}" %><br />
+    <%= f.label "#{I18n.t 'register.name'}",  required: true %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: :name %>
   </div>
 
   <div class="field">
-    <%= f.label "#{I18n.t 'register.last_name'}" %><br />
+    <%= f.label "#{I18n.t 'register.last_name'}",  required: true %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: :last_name %>
   </div>
 
   <div class="field">
-    <%= f.label "#{I18n.t 'passwords.password'}" %>
+    <%= f.label "#{I18n.t 'passwords.password'}",  required: true %>
     <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> <%="#{I18n.t 'passwords.char_min'}" %>)</em>
     <% end %><br />
@@ -27,12 +27,12 @@
   </div>
 
   <div class="field">
-    <%= f.label "Heslo znovu" %><br />
+    <%= f.label "#{I18n.t 'passwords.password_confirm'}",  required: true %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 <br>
   <div class="actions">
-    <%= f.submit "Registrovat", class:"btn btn-success"%>
+    <%= f.submit "#{I18n.t 'register.register'}" , class:"btn btn-success"%>
   </div>
 <% end %>
 

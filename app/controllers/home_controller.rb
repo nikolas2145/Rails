@@ -25,12 +25,14 @@ class HomeController < ApplicationController
   end
 
   def only_uncomp
-    @tasks = Task.uncomp_tasks.where(uid: current_user.id)
+      @tasks = Task.uncomp_tasks.where(uid: current_user.id)
 
 
   end
 
   def alltasks
+
+
 
     if current_user.nil?
       redirect_to new_user_session_path, notice: "#{I18n.t 'login.need_to_login'}"
@@ -43,12 +45,21 @@ class HomeController < ApplicationController
 
   def alltags
 
+    @tags_titles = Array.new
     if current_user.nil?
       redirect_to new_user_session_path, notice: "#{I18n.t 'login.need_to_login'}"
     else
     @pagy, @tags = pagy( Tag.where(:uid => current_user.id) )
+
+
+
     end
-  end
+
+
+
+
+    end
+
 
 
 

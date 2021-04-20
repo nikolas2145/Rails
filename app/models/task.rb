@@ -1,5 +1,7 @@
 class Task < ApplicationRecord
   #has_many :tags
+  #Validation
+  validates :title, presence: true
 
   belongs_to :project
   has_many :tags, dependent: :destroy
@@ -16,6 +18,7 @@ class Task < ApplicationRecord
       all
     end
   end
+  mount_uploader :attachment, AttachmentUploader # Tells rails to use this uploader for this model.
 
 
 end

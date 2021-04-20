@@ -30,6 +30,7 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     #@project = Project.find_by_id(params[:id])
+    @project.position = Project.where(:uid => current_user.id).length
   end
 
   # GET /projects/1/edit
@@ -38,8 +39,10 @@ class ProjectsController < ApplicationController
 
   # POST /projects or /projects.json
   def create
+
     @project = Project.new(project_params)
     @project.uid = current_user.id
+
 
 
     respond_to do |format|
@@ -53,7 +56,10 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def last_projects
+    @pagy, @projects = pagy( Project.where(:uid => current_user.id))
 
+  end
 
   # PATCH/PUT /projects/1 or /projects/1.json
   def update

@@ -1,0 +1,39 @@
+
+<html>
+<head>
+
+  <h1><%="#{I18n.t 'project.projects'}" %></h1>
+
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th><%="#{I18n.t 'project.title'}" %></th>
+
+      <th colspan="4"></th>
+    </tr>
+    </thead>
+
+
+    <tbody>
+    <% @projects.reverse.each do |project| %>
+      <%if project.uid == current_user.id %>
+        <tr>
+          <td><%= project.title %></td>
+          <td><% project.position %></td>
+          <td><%= link_to "#{I18n.t 'forms.show'}", project, class: "btn btn-secondary" %></td>
+          <td><%= link_to "#{I18n.t 'forms.edit'}", edit_project_path(project), class: "btn btn-dark" %></td>
+          <td><%= link_to "#{I18n.t 'forms.destroy'}", project, method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class:"btn btn-danger" %></td>
+        </tr>
+      <% end %>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to "#{I18n.t 'project.new_project'}", new_project_path, class:"btn btn-success" %>
+  <%= link_to "#{I18n.t 'project.sort_last'}", projects_path, class:"btn btn-dark"%>
+</head>
+</html>
+<br><br>
+<%==pagy_nav(@pagy) %>

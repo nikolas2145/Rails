@@ -10,8 +10,11 @@ class TagsController < ApplicationController
 
 
 
+
   # GET tasks/1/tags/1
   def show
+
+
 
   end
 
@@ -28,7 +31,7 @@ class TagsController < ApplicationController
   def create
     @tag = @task.tags.build(tag_params)
     @tag.uid = current_user.id
-    if 
+
 
 
 
@@ -71,4 +74,4 @@ class TagsController < ApplicationController
     def tag_params
       params.require(:tag).permit(:title)
     end
-end
+  end

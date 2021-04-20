@@ -6,6 +6,9 @@ cz:
     "project_destoy" : "Projekt odstraněn"
     "title" : "Název"
     "new_project" : "Nový projekt"
+    "position": "Pozice"
+    "sort_last": "Od nejnovějšího"
+    "sort_first" : "Od nejstaršího"
   tags:
     "tags" : "Tagy"
     "tag_created" : "Tag byl vytvořen"
@@ -32,6 +35,10 @@ cz:
     "no_desc" : "Bez popisu"
     "comp" : "Hotovo"
     "uncomp" : "Nedoděláno"
+    "file": "Soubor"
+    "upload": "Nahrát"
+    "without_file": "Bez souboru"
+    "download": "Stáhnout"
   searchs:
     "search" : "Hledej"
   forms:

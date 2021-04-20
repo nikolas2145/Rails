@@ -1,5 +1,7 @@
 class Tag < ApplicationRecord
   belongs_to :task
+  #Validation
+  validates :title, presence: true
 
   def self.search(search)
     if search
