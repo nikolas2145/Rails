@@ -1,0 +1,40 @@
+
+html
+head
+
+h1 ="#{I18n.t 'project.projects'}"
+
+table class="table table-striped"
+
+  thead
+
+    tr
+      strong ="#{I18n.t 'project.title'}"
+
+
+    tr
+  thead
+
+
+  tbody
+    - @projects.each do |project|
+      - if project.uid == current_user.id
+      tr
+        td =project.title
+
+        td =link_to "#{I18n.t 'forms.show'}", project, class: "btn btn-secondary"
+        td =link_to "#{I18n.t 'forms.edit'}", edit_project_path(project), class: "btn btn-dark"
+        td =link_to "#{I18n.t 'forms.destroy'}", project, method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class:"btn btn-danger"
+      tr
+      end
+      end
+  tbody
+table
+
+br
+
+=link_to "#{I18n.t 'project.new_project'}", new_project_path, class:"btn btn-success"
+=link_to "#{I18n.t 'project.sort_first'}", projects_last_projects_path, class:"btn btn-dark"
+head
+htm
+

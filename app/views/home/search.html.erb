@@ -56,17 +56,18 @@
       <thead>
       <tr>
         <th><%="#{I18n.t 'tags.tags'}" %></th>
-
-        <th colspan="3"></th>
+        <th><%= "#{I18n.t 'tags.under_task'}" %></th>
+        <th colspan="4"></th>
       </tr>
       </thead>
 
       <% @tags.each do |tag| %>
         <tr>
           <td><%= highlight(tag.title, params[:search]) %></td>
+          <td><%= "#{tag.task.title}"%></td>
           <td><%= link_to "#{I18n.t 'forms.show'}", [tag.task, tag], class: "btn btn-secondary" %></td>
           <td><%= link_to "#{I18n.t 'forms.edit'}", edit_task_tag_path(tag.task, tag), class:"btn btn-dark" %></td>
-          <td> <%= link_to "#{I18n.t 'forms.destroy'}", [@tag.task, @tag], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class: "btn btn-danger"%></td>
+          <td><%= link_to "#{I18n.t 'forms.destroy'}", [tag.task, tag], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class: "btn btn-danger" %></td>
         </tr>
       <% end %>
       <%end %>

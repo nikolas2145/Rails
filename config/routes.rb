@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get 'home/only_uncomp' #tasks
   get 'home/search' #search
   get 'home/alltags'# Tags
-
+  get 'home/index2'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

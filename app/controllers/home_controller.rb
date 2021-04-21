@@ -5,6 +5,10 @@ class HomeController < ApplicationController
 
   end
 
+  def index2
+    @projects = Project.where(:uid => current_user.id)
+  end
+
 
   def search
     if current_user.nil?
