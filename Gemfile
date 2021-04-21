@@ -39,6 +39,7 @@ gem 'pagy', '~> 4.1'
 gem 'simple_form', '~> 5.1'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'factory_bot'
+gem 'devise-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

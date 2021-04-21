@@ -10,9 +10,10 @@ class HomeController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path, notice: "#{I18n.t 'login.need_to_login'}"
     else
-    @projects = Project.search(params[:search]).where(uid: current_user.id)
-    @tasks = Task.search(params[:search]).where(uid: current_user.id)
-    @tags = Tag.search(params[:search]).where(uid: current_user.id)
+      @projects = Project.search(params[:search]).where(uid: current_user.id)
+      @tasks = Task.search(params[:search]).where(uid: current_user.id)
+      @tags = Tag.search(params[:search]).where(uid: current_user.id)
+
     end
     end
 

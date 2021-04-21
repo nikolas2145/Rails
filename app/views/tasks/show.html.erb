@@ -24,11 +24,12 @@
     <%end %>
   <br>
   <br>
+
   <%="#{I18n.t 'tasks.file'}" %>:
-  <% if @task.attachment.nil? == false%>
-    <%=link_to "#{I18n.t 'tasks.download'}", @task.attachment_url %>
+  <% if @task.attachment.nil? %>
+  <strong><%="#{I18n.t 'tasks.without_file'}" %></strong>
     <%else %>
-<strong>    <%="#{I18n.t 'tasks.without_file'}" %></strong>
+  <%=link_to "#{I18n.t 'tasks.download'}", @task.attachment_url %>
     <%end %>
   <br>
 

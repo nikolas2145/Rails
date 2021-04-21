@@ -4,7 +4,7 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th><%="#{I18n.t 'projects'}" %></th>
+    <th><%="#{I18n.t 'project.projects'}" %></th>
 
     <th colspan="3"></th>
   </tr>
@@ -16,7 +16,7 @@
 <% @projects.each do |project| %>
 
     <tr>
-      <td><%= project.title %></td>
+      <td><%= highlight(project.title, params[:search]) %></td>
 
       <td><%= link_to "#{I18n.t 'forms.show'}", project, class: "btn btn-secondary" %></td>
       <td><%= link_to "#{I18n.t 'forms.edit'}", edit_project_path(project), class: "btn btn-dark" %></td>
@@ -41,7 +41,7 @@
     <% @tasks.each do |task| %>
 
       <tr>
-        <td><%= task.title %></td>
+        <td><%= highlight(task.title, params[:search]) %></td>
         <td><%= link_to "#{I18n.t 'forms.show'}", [task.project, task], class:"btn btn-secondary" %></td>
         <td><%= link_to "#{I18n.t 'forms.edit'}", edit_project_task_path(task.project, task), class:"btn btn-dark" %></td>
         <td><%= link_to "#{I18n.t 'forms.destroy'}", [task.project, task], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" },class:"btn btn-danger" %></td>
@@ -63,10 +63,10 @@
 
       <% @tags.each do |tag| %>
         <tr>
-          <td><%= tag.title %></td>
+          <td><%= highlight(tag.title, params[:search]) %></td>
           <td><%= link_to "#{I18n.t 'forms.show'}", [tag.task, tag], class: "btn btn-secondary" %></td>
           <td><%= link_to "#{I18n.t 'forms.edit'}", edit_task_tag_path(tag.task, tag), class:"btn btn-dark" %></td>
-          <td><%= link_to "#{I18n.t 'forms.destroy'}", [tag.task, tag], method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+          <td> <%= link_to "#{I18n.t 'forms.destroy'}", [@tag.task, @tag], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class: "btn btn-danger"%></td>
         </tr>
       <% end %>
       <%end %>

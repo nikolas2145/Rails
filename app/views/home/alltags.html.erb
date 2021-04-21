@@ -9,25 +9,36 @@
 
 
 
-<br />
-<div class="card" style="width: 25rem;">
-  <div class="card-header">
-    <%="#{I18n.t 'tags.tags'}" %>
-  </div>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th><%="#{I18n.t 'project.title'}" %></th>
+    <th><%="#{I18n.t 'tags.under_task'}" %></th>
+    <th colspan="5"></th>
+  </tr>
+  </thead>
+
+
+  <tbody>
   <% @tags.each do |tag| %>
-    <ul class="list-group list-group-flush">
+
+    <tr>
+      <td><%= tag.title %></td>
+      <td><%= tag.task.title %></td>
+      <td><%= link_to "#{I18n.t 'forms.show'}",[tag.task, tag] , class: "btn btn-secondary" %></td>
+      <td><%= link_to "#{I18n.t 'forms.edit'}", edit_task_tag_path(tag.task, tag), class: "btn btn-dark" %></td>
+      <td><%= link_to "#{I18n.t 'forms.destroy'}",[@tag.task, @tag], method: :delete, data: { confirm: "#{I18n.t 'notice.are_you_sure'}" }, class:"btn btn-danger" %></td>
+    </tr>
+
+  <% end %>
+  </tbody>
+</table>
 
 
-        <%= link_to "#{tag.title}", [tag.task, tag], class:"list-group-item card bg-secondary"%>
-
-  <%end %>
 
 
 
 
-
-  </ul>
-</div>
 <br>
 
 <br>
