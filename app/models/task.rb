@@ -1,12 +1,14 @@
 class Task < ApplicationRecord
-  #has_many :tags
-  #Validation
-  validates :title, presence: true
-
   belongs_to :project
   has_many :tags, dependent: :destroy
 
   attribute :is_done, :boolean, default: false
+  #validation
+  validates :title, presence: true
+  validates :uid, presence: true
+
+
+  validates :project_id, presence: true
 
   scope :comp_tasks, -> {where(:is_done => true)}
   scope :uncomp_tasks, -> {where(:is_done => false)}

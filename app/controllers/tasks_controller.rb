@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :set_task
   attr_reader :task
-  before_action :set_project
+  before_action :set_project, expect: :update
 
   before_action :set_task, only: [:show, :edit, :update, :destroy]
 
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
 
     if @task.save
-      redirect_to([@task.project,], notice: "#{I18n.t 'tasks.task_created'}")
+      redirect_to([@task.project,@task], notice: "#{I18n.t 'tasks.task_created'}")
     else
       render action: 'new'
     end

@@ -42,7 +42,7 @@ class HomeController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path, notice: "#{I18n.t 'login.need_to_login'}"
       else
-      @pagy, @tasks = pagy (Task.where(:uid => current_user.id))
+      @pagy, @tasks = pagy (Task.where(:uid => current_user.id).includes([:project]))
       end
 
   end
@@ -54,10 +54,7 @@ class HomeController < ApplicationController
     if current_user.nil?
       redirect_to new_user_session_path, notice: "#{I18n.t 'login.need_to_login'}"
     else
-    @pagy, @tags = pagy( Tag.where(:uid => current_user.id) )
-
-
-
+    @pagy, @tags = pagy( Tag.where(:uid => current_user.id).includes([:task]) )
     end
 
 

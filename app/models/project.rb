@@ -4,7 +4,7 @@ class Project < ApplicationRecord
   #Validation
   validates :title, presence: true
   validates :position, presence: true
-
+  validates :uid, presence: true
   def self.search(search)
     if search
       where(["title LIKE?", "%#{search}%"])

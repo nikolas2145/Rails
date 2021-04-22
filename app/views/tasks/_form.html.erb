@@ -1,4 +1,4 @@
-<%= simple_form_for @task do |f| %>
+<%= form_with(model: [@task.project, @task]) do |f| %>
   <% if @task.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@task.errors.count, "error") %> <%="#{I18n.t 'forms.cannot_save'}" %></h2>
