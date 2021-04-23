@@ -4,7 +4,7 @@ FactoryBot.define do
     last_name  { "Doe" }
     email { "testemail@test.com" }
     id { 5 }
-
+    password {Faker::Internet.password}
   end
 
   factory :random_user, class: User do
@@ -12,6 +12,7 @@ FactoryBot.define do
     last_name { Faker::Name.last_name }
     email { Faker::Internet.safe_email }
     id { Faker::Number.number(digits: 5) }
+    password { Faker::Internet.password }
 
   end
 

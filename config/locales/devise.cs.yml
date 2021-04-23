@@ -83,6 +83,7 @@ cs:
     "confirm_instructions?" : "Neobdrželi jste pokyny pro aktivaci?"
     "unlock_instructions?" : "Neobdrželi jste pokyny pro odemčení?"
     "sign_in_with" : "Přihlášení s "
+    "password_empty": "Nechte prázdné, pokud nechcete upravit"
 
   notice:
     "are_you_sure" : "Jste si jistý?"

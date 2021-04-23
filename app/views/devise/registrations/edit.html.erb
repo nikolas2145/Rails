@@ -1,6 +1,6 @@
 <h2><%= current_user.email%></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -9,12 +9,12 @@
   </div>
 
   <div class="field">
-    <%= f.label "Jméno" %><br />
+    <%= f.label "#{I18n.t'register.name'}" %><br />
     <%= f.text_field :name, autofocus: true, autocomplete:"#{I18n.t 'register.name'}"%>
   </div>
 
   <div class="field">
-    <%= f.label "Příjmení" %><br />
+    <%= f.label "#{I18n.t'register.last_name'}" %><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "#{I18n.t 'register.last_name'}"%>
     </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -22,7 +22,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "#{I18n.t 'passwords.password'}" %> <i>(Nechte prázndé, pokud nechcete upravit)</i><br />
+    <%= f.label "#{I18n.t 'passwords.password'}" %> <i>(<%="#{I18n.t'edit.password_empty'}" %>)</i><br />
     <%= f.password_field :password, autocomplete: "#{I18n.t 'passwords.new_password'}" %>
     <% if @minimum_password_length %>
       <br />
@@ -36,7 +36,7 @@
   </div>
 
   <div class="field">
-    <%= f.label "#{I18n.t 'passwords.current_password'}" %> <i>(Potvrzení hesla)</i><br />
+    <%= f.label "#{I18n.t 'passwords.current_password'}" %> <i>(<%="#{I18n.t'passwords.password_confirm'}" %>)</i><br />
     <%= f.password_field :current_password, autocomplete: "#{I18n.t 'passwords.current_password'}"%>
   </div>
   <br>

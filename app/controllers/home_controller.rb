@@ -6,7 +6,7 @@ class HomeController < ApplicationController
   end
 
   def index2
-    @projects = Project.where(:uid => current_user.id)
+    @pagy, @projects = pagy(Project.where(:uid => current_user.id))
   end
 
 

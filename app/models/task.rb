@@ -6,8 +6,6 @@ class Task < ApplicationRecord
   #validation
   validates :title, presence: true
   validates :uid, presence: true
-
-
   validates :project_id, presence: true
 
   scope :comp_tasks, -> {where(:is_done => true)}

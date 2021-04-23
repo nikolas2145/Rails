@@ -20,6 +20,18 @@ RSpec.describe Task, type: :model do
       #task = Task.new(title: "test", project_id: 99999, description:'Test', attachment:'Test', is_done:false).save
       expect(task.save).to eq(false)
     end
+    it 'Without Desc' do
+      project = Project.new(title:"testing", position: 0, uid: 3, id: 99).save
+      task.description = nil
+      #task = Task.new(title: "test", project_id: 99999, description:'Test', attachment:'Test', is_done:false).save
+      expect(task.save).to eq(true)
+    end
+    it 'Without Attachment' do
+      project = Project.new(title:"testing", position: 0, uid: 3, id: 99).save
+      task.attachment = nil
+      #task = Task.new(title: "test", project_id: 99999, description:'Test', attachment:'Test', is_done:false).save
+      expect(task.save).to eq(true)
+    end
     it 'Without Project ID' do
       project = Project.new(title:"testing", position: 0, uid: 3, id: 99).save
       task.project_id = nil

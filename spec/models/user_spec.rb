@@ -21,8 +21,14 @@ RSpec.describe User, type: :model do
       #user = User.new(name: 'Name', email: 'test@test21.com').save
       expect(user.save).to eq(false)
     end
+    it 'Without Password' do
+      user.password = nil
+      #user = User.new(name: 'Name', email: 'test@test21.com').save
+      expect(user.save).to eq(false)
+    end
 
     it 'Should save' do
+
       # user = User.new(name: 'Name', email: 'test@test21.com', last_name: 'Last').save
       expect(user.save).to eq(true)
     end
